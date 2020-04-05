@@ -55,11 +55,11 @@ export default class TwitterTweetEmbed extends Component {
           }
 
           console.log("onclick", onClick);
-
-          if (onClick) {
-            window.twttr.events.bind("click", (e) => onClick(e));
-          }
         });
+
+      if (onClick) {
+        window.twttr.events.bind("click", (e) => onClick(e));
+      }
     }
   }
 
