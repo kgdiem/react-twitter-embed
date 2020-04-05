@@ -40,6 +40,12 @@ export default class TwitterTweetEmbed extends Component {
       return;
     }
     if (!this.isMountCanceled) {
+      window.twttr.ready((twttr) => {
+        if (onClick) {
+          twttr.events.bind("click", (e) => onClick(e));
+        }
+      });
+
       window.twttr.widgets
         .createTweet(
           this.props.tweetId,
@@ -56,10 +62,6 @@ export default class TwitterTweetEmbed extends Component {
 
           console.log("onclick", onClick);
         });
-
-      if (onClick) {
-        window.twttr.events.bind("click", (e) => onClick(e));
-      }
     }
   }
 
