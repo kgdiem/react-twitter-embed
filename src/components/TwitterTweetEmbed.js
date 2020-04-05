@@ -57,7 +57,7 @@ export default class TwitterTweetEmbed extends Component {
           console.log("onclick", onClick);
 
           if (onClick) {
-            twttr.events.bind("click", (e) => onClick(e));
+            window.twttr.events.bind("click", (e) => onClick(e));
           }
         });
     }
